@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17152b">
+  <title>UNO Dissertativo Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🃏 UNO <span>Dissertativo</span></h1>
+    <p>Desafio de redação ENEM • Multiplayer</p>
+  </header>
 
+  <main>
+    <section id="entry" class="panel">
+      <h2>Jogue com seus amigos</h2>
+      <label for="nickname">Seu apelido</label>
+      <input id="nickname" maxlength="20" placeholder="Ex.: Ana" autocomplete="nickname">
+
+      <button id="create-room">Criar sala</button>
+
+      <div class="separator">OU ENTRE EM UMA SALA</div>
+      <label for="room-code">Código da sala</label>
+      <input id="room-code" maxlength="6" placeholder="Ex.: A1B2C3">
+      <button id="join-room" class="secondary">Entrar na sala</button>
+      <p id="entry-message" class="message" role="status"></p>
+    </section>
+
+    <section id="lobby" class="panel hidden">
+      <div class="lobby-header">
+        <div>
+          <span class="eyebrow">SUA SALA</span>
+          <h2 id="room-title">------</h2>
+        </div>
+        <button id="copy-link" class="secondary">Copiar convite</button>
+      </div>
+      <p id="lobby-message">Esperando jogadores...</p>
+      <h3>Jogadores</h3>
+      <ul id="players-list"></ul>
+      <button id="start-game">Começar partida</button>
+      <p class="hint">São necessários pelo menos 2 jogadores.</p>
+    </section>
+
+    <section id="game" class="hidden">
+      <div class="panel status-panel">
+        <div>
+          <span class="eyebrow">SALA</span>
+          <strong id="game-room-code"></strong>
+        </div>
+        <div>
+          <span class="eyebrow">VEZ DE</span>
+          <strong id="turn-name"></strong>
+        </div>
+        <div>
+          <span class="eyebrow">COR ATIVA</span>
+          <strong id="active-color"></strong>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Jogadores</h2>
+        <div id="game-players" class="players-grid"></div>
+      </div>
+
+      <div class="panel table">
+        <div>
+          <span class="eyebrow">CARTA DA MESA</span>
+          <div id="top-card"></div>
+        </div>
+        <div>
+          <span class="eyebrow">BARALHO</span>
+          <button id="draw-card" class="deck-card">UNO<br>COMPRAR</button>
+          <p id="deck-count"></p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 id="hand-title">Suas cartas</h2>
+        <p id="game-message" class="message" role="status">Boa partida!</p>
+        <div id="hand" class="hand"></div>
+        <div id="color-picker" class="color-picker hidden">
+          <p>Escolha a cor do coringa:</p>
+          <button data-color="vermelho" class="red">Vermelho</button>
+          <button data-color="azul" class="blue">Azul</button>
+          <button data-color="verde" class="green">Verde</button>
+          <button data-color="amarelo" class="yellow">Amarelo</button>
+        </div>
+        <button id="call-uno" class="uno-button">UNO!</button>
+      </div>
+
+      <div class="panel">
+        <span class="eyebrow">DESAFIO DE REDAÇÃO</span>
+        <h2 id="quiz-question">Os desafios aparecerão aqui.</h2>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback"></p>
+      </div>
+    </section>
+
+    <section id="finished" class="panel hidden">
+      <h2 id="winner-title">Fim de jogo!</h2>
+      <p id="winner-message"></p>
+      <button id="back-home">Voltar ao início</button>
+    </section>
+
+    <footer>
+      Projeto educativo independente. Pratique as competências de redação do ENEM!
+    </footer>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
